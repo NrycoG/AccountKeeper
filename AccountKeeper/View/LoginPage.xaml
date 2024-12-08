@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AccountKeeper.View.LoginPage"
+             BackgroundColor="#D2B48C">
+  
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="30" >
+            <Image Source="https://cdn0.iconfinder.com/data/icons/cryptocurrency-137/128/1_profile_user_avatar_account_person-132-512.png" 
+                   HorizontalOptions="Center" 
+                   HeightRequest="150" 
+                   WidthRequest="150" 
+                   Aspect="AspectFit"
+                   />
+           
+
+            <!-- Username Entry with Border and Increased Size -->
+            <Frame BorderColor="#EADCA6" Padding="10" HasShadow="False" CornerRadius="30" HeightRequest="60" HorizontalOptions="Center" WidthRequest="300" >
+                <Entry Placeholder="Username"
+                Text="{Binding Username}"
+                Keyboard="Email"
+                VerticalOptions="Center"
+                WidthRequest="250"
+                       
+                       HorizontalOptions="FillAndExpand"
+                       
+                />
+            </Frame>
+
+            <!-- Password Entry with Border and Increased Size -->
+            <Frame BorderColor="#EADCA6" Padding="10" HasShadow="False" CornerRadius="30" HeightRequest="60" HorizontalOptions="Center" WidthRequest="300">
+                <Entry Placeholder="Password"
+                Text="{Binding Password}"
+                IsPassword="True"                     
+                VerticalOptions="Center"   
+                       HorizontalOptions="FillAndExpand"
+                       WidthRequest="250"
+               
+                />
+            </Frame>
+
+            <!-- Login Button with Increased Size -->
+            <Button Text="Login"
+             Command="{Binding LoginCommand}"
+             IsEnabled="{Binding IsLoginEnabled}"
+             BackgroundColor="#C36A2D"
+             TextColor="White"
+             HeightRequest="60"
+                    WidthRequest="150"
+             CornerRadius="30" />
+
+            <!-- Error Message -->
+            <Label Text="{Binding ErrorMessage}" 
+            TextColor="#C36A2D"
+            IsVisible="{Binding HasError}" 
+            HorizontalTextAlignment="Center"
+            VerticalTextAlignment="Center" />
+
+            <!-- Register Button -->
+            <Button Text="Register"
+             Command="{Binding NavigateToRegisterCommand}"
+             BackgroundColor="Transparent"
+             TextColor="red"
+             HeightRequest="60"
+             CornerRadius="10" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

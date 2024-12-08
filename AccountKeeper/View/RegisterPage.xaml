@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AccountKeeper.View.RegisterPage"
+             Title="Register"
+             BackgroundColor="Wheat">
+    <VerticalStackLayout Spacing="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+        <!-- Username Entry with Border and Padding -->
+        <Frame BorderColor="#DEA057" Padding="0" HasShadow="False" CornerRadius="5" HeightRequest="60">
+            <Entry Placeholder="Username" 
+                Text="{Binding Username}" 
+                VerticalOptions="Center" 
+                HeightRequest="60"
+                 WidthRequest="340"
+                   Background="#795548"
+/>
+        </Frame>
+
+        <!-- Password Entry with Border and Padding -->
+        <Frame BorderColor="#DEA057" Padding="0" HasShadow="False" CornerRadius="5" HeightRequest="60">
+            <Entry Placeholder="Password" 
+                Text="{Binding Password}" 
+                IsPassword="True"
+                VerticalOptions="Center"
+                HeightRequest="60"
+                WidthRequest="340"
+                   Background="#795548"/>
+        </Frame>
+
+        <!-- Confirm Password Entry with Border and Padding -->
+        <Frame BorderColor="Gray" Padding="0" HasShadow="False" CornerRadius="5" HeightRequest="60">
+            <Entry Placeholder="Confirm Password" 
+                Text="{Binding ConfirmPassword}" 
+                IsPassword="True"
+                VerticalOptions="Center"
+                 HeightRequest="60"
+                 WidthRequest="340"
+                   Background="#795548"/>
+        </Frame>
+
+        <!-- Register Button -->
+        <Button Text="Register" 
+             Command="{Binding RegisterCommand}" 
+             IsEnabled="{Binding IsLoginEnabled}"
+             BackgroundColor="Blue" 
+             TextColor="White" 
+             HeightRequest="60" 
+             CornerRadius="30" 
+                WidthRequest="150"
+                Background="#DEA057"/>
+
+        <!-- Cancel Button -->
+        <Button Text="Cancel" 
+             Command="{Binding CancelCommand}" 
+             BackgroundColor="Transparent" 
+             TextColor="White" 
+             HeightRequest="60" 
+             CornerRadius="30" 
+                WidthRequest="150"
+                Background="#DEA057"/>
+
+        <!-- Error Message -->
+        <Label Text="{Binding ErrorMessage}" 
+            TextColor="#DEA057" 
+            IsVisible="{Binding HasError}" 
+            HorizontalTextAlignment="Center" 
+            VerticalTextAlignment="Center"/>
+
+    </VerticalStackLayout>
+</ContentPage>

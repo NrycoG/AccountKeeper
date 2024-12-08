@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AccountKeeper.View.HomePage"
+             Background="#F3E5D4"
+             >
+
+
+
+    <Grid RowDefinitions="Auto, *, Auto" Padding="0">
+
+        <!-- Header -->
+        <Label Text="Vault Account "
+               FontSize="25"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="Center"
+               FontAttributes="Bold"
+               TextColor="#6D4C41"
+               Margin="0,0,170,40"
+               />
+
+        <SearchBar Placeholder="Search Accounts..."
+                   Text="{Binding SearchText}"
+                   Margin="0,50,0,0"
+                   BackgroundColor="PeachPuff"
+                   
+                   />
+
+        <!-- Account List -->
+        <CollectionView Grid.Row="1"
+                ItemsSource="{Binding Users}"
+                SelectedItem="{Binding SelectedUser, Mode=TwoWay}" 
+                SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Spacing="5">
+                        <!-- Name -->
+                        
+                            <HorizontalStackLayout>
+                                <Label Text="Name:" FontAttributes="Bold" FontSize="14" TextColor="#5D4037" />
+                                <Label Text="{Binding Name, Mode=TwoWay}" FontAttributes="Italic" FontSize="14" TextColor="#5D4037" />
+                            </HorizontalStackLayout>
+
+                            <!-- Email -->
+
+                            <HorizontalStackLayout>
+                                <Label Text="Email:" FontAttributes="Bold" FontSize="14" TextColor="#5D4037" />
+                                <Label Text="{Binding Email, Mode=TwoWay}" FontAttributes="Italic" FontSize="14" TextColor="#5D4037" />
+                            </HorizontalStackLayout>
+                        
+
+                        <!-- Password -->
+                        
+                        <HorizontalStackLayout>
+                            <Label Text="Password:" FontAttributes="Bold" FontSize="14" TextColor="#5D4037" />
+                            <Label Text="{Binding Password, Mode=TwoWay}" FontAttributes="Italic" FontSize="14" TextColor="#5D4037" />
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <!-- Buttons Section -->
+        <HorizontalStackLayout Grid.Row="2" Spacing="3" VerticalOptions="End" >
+            <Button Text="Create" Clicked="Button_Clicked" BackgroundColor="#795548" TextColor="White" FontAttributes="Bold" CornerRadius="10" HorizontalOptions="FillAndExpand" HeightRequest="40" WidthRequest="120" />
+
+            <Button Text="Update"
+        Command="{Binding UpdateAccountCommand}"
+                    IsEnabled="{Binding SelectedUser}"
+        BackgroundColor="#795548"
+        TextColor="White"
+        FontAttributes="Bold"
+        CornerRadius="10"
+        HorizontalOptions="FillAndExpand"
+        HeightRequest="40"
+        WidthRequest="120" />
+
+            <Button Text="Delete"
+        Command="{Binding DeleteAccountCommand}"
+                    IsEnabled="{Binding SelectedUser}"
+        BackgroundColor="#795548"
+        TextColor="White"
+        FontAttributes="Bold"
+        CornerRadius="10"
+        HorizontalOptions="FillAndExpand"
+        HeightRequest="40"
+        WidthRequest="120" />
+        </HorizontalStackLayout>
+
+        <Button Text="Logout"
+                Command="{Binding LogoutCommand}"
+               BackgroundColor="#6D4C41"
+              TextColor="White"
+               FontAttributes="Bold"
+               CornerRadius="10"
+                Padding="10"
+             HeightRequest="40"
+              WidthRequest="75"
+              Margin="270,0,0,40" />
+        <Button Text="Refresh"
+                Command="{Binding RefreshCommand}"
+                BackgroundColor="#6d4c41"
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="10"
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="40"
+                WidthRequest="80"
+                Margin="100,0,0,40"/>
+
+    </Grid>
+</ContentPage>
+
+

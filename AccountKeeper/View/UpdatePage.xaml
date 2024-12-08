@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AccountKeeper.View.UpdatePage"
+             BackgroundColor="Wheat"
+             Title="UpdatePage">
+
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0" Padding="0" HorizontalOptions="Center" VerticalOptions="Center" Margin="50,0,0,100">
+
+            <!-- Page Title -->
+            <Label Text="Update Account Details"
+                   FontSize="24"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#333" 
+                   FontAttributes="Bold"
+                  HeightRequest="50"
+                   />
+
+            <!-- Name Entry -->
+            <Frame BorderColor="#EADCA6" Padding="10" HasShadow="False" CornerRadius="10">
+                <Entry Placeholder="Name"
+                       Text="{Binding SelectedUser.Name}"
+                       TextColor="Wheat"
+                       Keyboard="Text"
+                       HeightRequest="40"
+                       HorizontalOptions="FillAndExpand" />
+            </Frame>
+
+            <!-- Email Entry -->
+            <Frame BorderColor="#EADCA6" Padding="10" HasShadow="False" CornerRadius="10">
+                <Entry Placeholder="Email"
+                       Text="{Binding SelectedUser.Email}"
+                       TextColor="Wheat"
+                       Keyboard="Email"
+                       HeightRequest="40"
+                       HorizontalOptions="FillAndExpand" />
+            </Frame>
+
+            <!-- Password Entry -->
+            <Frame BorderColor="#EADCA6" Padding="10" HasShadow="False" CornerRadius="10">
+                <Entry Placeholder="Password"
+                       Text="{Binding SelectedUser.Password}"
+                       IsPassword="True"
+                       TextColor="Wheat"
+                       HeightRequest="40"
+                       HorizontalOptions="FillAndExpand" />
+            </Frame>
+
+            <!-- Buttons Row -->
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+
+                <!-- Save Button -->
+                <Button Text="Save"
+                        Command="{Binding SaveCommand}"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        WidthRequest="120" />
+
+                <!-- Cancel Button -->
+                <Button Text="Cancel"
+                        Command="{Binding CancelCommand}"
+                        BackgroundColor="#F44336"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        HeightRequest="50"
+                        WidthRequest="120" />
+
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>
